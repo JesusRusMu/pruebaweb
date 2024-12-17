@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -14,4 +15,5 @@ export class RegisterPatientsService {
   obtenerPacientesPorMedico(id: number): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/${id}/pacientes`);
   }
+
 }

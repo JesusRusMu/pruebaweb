@@ -30,4 +30,8 @@ export class RegisterParametersService {
   actualizarParametros(id: number, parametros: any): Observable<any> {
     return this.http.put<any>(`${this.baseUrl}/${id}/actualizarParametros`, parametros);
   }
+
+  obtenerParametros(pacienteId: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${pacienteId}/parametros`);
+  }
 }

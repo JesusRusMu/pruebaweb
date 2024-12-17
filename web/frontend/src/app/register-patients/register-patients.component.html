@@ -3,6 +3,7 @@
   <p class="subtitle">Revisa la lista de pacientes bajo tu cuidado.</p>
 </div>
 
+<!-- Mostrar la lista de pacientes -->
 <div class="patients-list">
   <div class="patient-row" *ngFor="let paciente of pacientes">
     <img src="assets/icons/user.png" alt="Usuario" class="patient-avatar" />
@@ -10,8 +11,19 @@
       <h2>{{ paciente.nombre }} {{ paciente.apellido }}</h2>
       <p>ID: {{ paciente.id }}</p>
     </div>
-    <div class="actions">
-      <button (click)="verDetalles(paciente.id)"> Detalles</button>
-    </div>
+    <!-- Botón "Ver Detalles" -->
+    <button (click)="verDetalles(paciente.id)">Ver Detalles</button>
+  </div>
+</div>
+
+<!-- Mostrar los detalles del paciente seleccionado -->
+<div *ngIf="pacienteSeleccionado" class="patient-details">
+  <h2>Detalles del Paciente</h2>
+  <p><strong>Nombre:</strong> {{ pacienteSeleccionado.nombre }} {{ pacienteSeleccionado.apellido }}</p>
+  <p><strong>Condición Médica:</strong> {{ pacienteSeleccionado.condicionMedica }}</p>
+
+  <!-- Mostrar los parámetros médicos del paciente -->
+  <div *ngFor="let parametro of parametros">
+    <p><strong>{{ parametro.label }}:</strong> {{ obtenerValorParametro(parametro.name) }}</p>
   </div>
 </div>

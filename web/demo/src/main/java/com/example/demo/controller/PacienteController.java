@@ -7,8 +7,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/pacientes") // Base para todos los endpoints de este controlador
@@ -111,6 +114,8 @@ public class PacienteController {
     public void eliminarPaciente(@PathVariable Long id) {
         pacienteService.eliminarPaciente(id);
     }
+
+
     /*
     @PostMapping("/{id}/parametros")
     public ResponseEntity<String> actualizarParametros(
@@ -165,5 +170,38 @@ public class PacienteController {
     public Paciente actualizarParametros(@PathVariable Long id, @RequestBody Paciente pacienteActualizado) {
         return pacienteService.actualizarParametros(id, pacienteActualizado);
     }
+
+
+    @GetMapping("/{id}/parametros")
+public ResponseEntity<?> obtenerParametrosPaciente(@PathVariable Long id) {
+    Optional<Paciente> optionalPaciente = pacienteService.obtenerPacientePorId(id);
+    if (!optionalPaciente.isPresent()) {
+        return ResponseEntity.notFound().build();  // Si no se encuentra el paciente
+    }
+
+    Paciente paciente = optionalPaciente.get();  // Extraer el valor del Optional
+
+    // Lógica para devolver los parámetros según la condición médica
+    Map<String, Object> parametrosPaciente = new HashMap<>();
+
+    if ("Diabetes".equals(paciente.getCondicionMedica())) {
+        parametrosPaciente.put("nivelGlucosa", paciente.getNivelGlucosa());
+        parametrosPaciente.put("nivelActividadFisica", paciente.getNivelActividadFisica());
+    } else if ("EPOC".equals(paciente.getCondicionMedica())) {
+        parametrosPaciente.put("saturacionO2", paciente.getSaturacionO2());
+        parametrosPaciente.put("frecuenciaRespiratoria", paciente.getFrecuenciaRespiratoria());
+    } else if ("Hipertension".equals(paciente.getCondicionMedica())) {
+        parametrosPaciente.put("presionArterial", paciente.getPresionArterial());
+        parametrosPaciente.put("frecuenciaCardiaca", paciente.getFrecuenciaCardiaca());
+    } else {
+        parametrosPaciente.put("mensaje", "No hay parámetros definidos para esta condición.");
+    }
+
+    return ResponseEntity.ok(parametrosPaciente);
+}
+
+
+
+
 }
 

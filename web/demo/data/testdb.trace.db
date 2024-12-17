@@ -225,3 +225,7 @@ SELECT * FROM usuarios [42102-232]
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "USUSARIO" no encontrada
 Table "USUSARIO" not found; SQL statement:
 SELECT * FROM ususario [42102-232]
+2024-12-17 10:23:42.710736+01:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "USUSARIO" no encontrada
+Table "USUSARIO" not found; SQL statement:
+SELECT * FROM ususario [42102-232]
