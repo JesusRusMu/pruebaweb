@@ -1,0 +1,24 @@
+<mat-toolbar color="primary" *ngIf="showHeader">
+  <button mat-button *ngIf="rol === 'Paciente'" routerLink="/home">Inicio
+      <mat-icon class="home-icon">home</mat-icon>
+  </button>
+  <button mat-button *ngIf="rol === 'Medico'" routerLink="/home-medico">
+    Inicio
+    <mat-icon class="home-icon">home</mat-icon>
+  </button>
+  <button mat-button routerLink="/register">Monitorización
+    <mat-icon>assignment</mat-icon>
+  </button>
+  <button mat-button routerLink="/appointments">Citas
+    <mat-icon>calendar_today</mat-icon>
+  </button>
+  <button mat-button routerLink="/messaging">Mensaje
+    <mat-icon>message</mat-icon>
+  </button>
+  <button mat-button (click)="logout()">
+    Logout
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>
+  
+

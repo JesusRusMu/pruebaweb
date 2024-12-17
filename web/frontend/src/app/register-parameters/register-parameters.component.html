@@ -1,0 +1,27 @@
+<form (ngSubmit)="onSubmit()">
+  <div *ngIf="condicionMedica === 'Diabetes'">
+    <label for="nivelGlucosa">Nivel de Glucosa:</label>
+    <input type="number" id="nivelGlucosa" [(ngModel)]="nivelGlucosa" name="nivelGlucosa">
+    
+    <label for="nivelActividadFisica">Nivel de Actividad Física:</label>
+    <input type="number" id="nivelActividadFisica" [(ngModel)]="nivelActividadFisica" name="nivelActividadFisica">
+  </div>
+
+  <div *ngIf="condicionMedica === 'EPOC'">
+    <label for="saturacionO2">Saturación O2:</label>
+    <input type="number" id="saturacionO2" [(ngModel)]="saturacionO2" name="saturacionO2">
+    
+    <label for="frecuenciaRespiratoria">Frecuencia Respiratoria:</label>
+    <input type="number" id="frecuenciaRespiratoria" [(ngModel)]="frecuenciaRespiratoria" name="frecuenciaRespiratoria">
+  </div>
+
+  <div *ngIf="condicionMedica === 'Hipertensión'">
+    <label for="presionArterial">Presión Arterial:</label>
+    <input type="text" id="presionArterial" [(ngModel)]="presionArterial" name="presionArterial">
+    
+    <label for="frecuenciaCardiaca">Frecuencia Cardiaca:</label>
+    <input type="number" id="frecuenciaCardiaca" [(ngModel)]="frecuenciaCardiaca" name="frecuenciaCardiaca">
+  </div>
+
+  <button type="submit">Actualizar Parámetros</button>
+</form>

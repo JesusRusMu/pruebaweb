@@ -1,0 +1,16 @@
+mat-toolbar {
+    font-family: 'Poppins';
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+  
+  button[mat-button] {
+    margin: 0 5px;
+  }
+  
+  mat-icon {
+    margin-left: 5px;
+    font-size: inherit;
+  }
+
+  

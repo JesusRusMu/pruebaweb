@@ -1,0 +1,33 @@
+.app-footer {
+    background-color: #6e7275; 
+    color: white; 
+    padding: 10px 20px;
+    font-size: 14px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif; 
+  }
+  
+  .footer-content p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  .footer-content nav {
+    margin-top: 10px;
+  }
+  
+  .footer-content nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+  }
+  
+  .footer-content nav a:hover {
+    text-decoration: underline;
+  }
+  

@@ -1,0 +1,41 @@
+<div class="appointments-container">
+    <h2>Calendario de Citas</h2>
+  
+    <!-- Calendario Básico -->
+    <div class="calendar-header">
+        <button (click)="prevMonth()">&#8592; Anterior</button>
+        <span>{{ mesActual | titlecase }} {{ anoActual }}</span>
+        <button (click)="nextMonth()">Siguiente &#8594;</button>
+     </div>
+     <table class="calendar">
+        <thead>
+          <tr>
+            <th *ngFor="let day of dias">{{ day }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let week of semanas">
+            <td *ngFor="let day of week" [class.empty]="!day">
+              <span *ngIf="day">{{ day }}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    <div class="appointment-form">
+      <h3>Programar Nueva Cita</h3>
+      <form>
+        <label for="date">Fecha:</label>
+        <input type="date" id="date" />
+  
+        <label for="time">Hora:</label>
+        <input type="time" id="time" />
+  
+        <label for="description">Descripción:</label>
+        <textarea id="description"></textarea>
+  
+        <button type="button">Guardar Cita</button>
+      </form>
+    </div>
+  </div>
+  

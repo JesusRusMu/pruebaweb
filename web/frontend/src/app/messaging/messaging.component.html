@@ -1,0 +1,13 @@
+<div class="mensajes-container">
+    <div class="mensajes">
+      <div *ngFor="let mensaje of mensajes" [ngClass]="{ 'enviado': mensaje.emisor_id === usuarioId, 'recibido': mensaje.emisor_id !== usuarioId }">
+        {{ mensaje.contenido }}
+      </div>
+    </div>
+    <form (submit)="enviarMensaje()" class="input-form">
+      <input [(ngModel)]="nuevoMensaje" name="mensaje" placeholder="Escribe un mensaje..." required />
+      <button type="submit">Enviar</button>
+    </form>
+</div>
+  
+  
